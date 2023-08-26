@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { Settings, StyleSheet, Text, View } from 'react-native';
+import {  StyleSheet, Text, View } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Feed from './components/Feed';
 import Messages from './components/Messages';
@@ -9,6 +9,7 @@ import Profile from './components/Profile';
 import AppSettings from './components/AppSettings';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import SignIn from './components/SignIn';
 
 const Tab = createBottomTabNavigator()
 function Home() {
@@ -22,10 +23,11 @@ function Home() {
 
 const Stack = createNativeStackNavigator();
 
-const App =() =>{
+const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen
           name="Home"
           component={Home}
